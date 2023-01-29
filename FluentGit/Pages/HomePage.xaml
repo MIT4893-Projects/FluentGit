@@ -33,7 +33,7 @@
         </StackPanel>
 
         <Button x:Name="QuitButton"
-                Command="{Binding ExitCommand, Source={StaticResource GlobalCommands}}"
+                Command="{Binding Exit, Source={StaticResource GlobalCommands}}"
                 Content="Quit"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" Margin="30"/>

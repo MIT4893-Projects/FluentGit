@@ -11,6 +11,6 @@ namespace FluentGit.Components.Commands
 {
     public class GlobalCommands
     {
-        public static ICommand ExitCommand { get; } = new ExitCommand();
+        public static ICommand Exit { get; } = new ExitCommand();
     }
 }

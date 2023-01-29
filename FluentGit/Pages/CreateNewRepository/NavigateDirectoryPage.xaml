@@ -31,14 +31,14 @@
 
                 <TextBlock Text="Directory: " Grid.ColumnSpan="2"/>
                 <TextBox Grid.Row="1"/>
-                <Button Content="Browse" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" />
+                <Button x:Name="BrowseButton" Content="Browse" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" />
             </Grid>
 
             <Button Content="Create" HorizontalAlignment="Stretch" />
         </StackPanel>
 
         <Button x:Name="QuitButton"
-                Command="{Binding ExitCommand, Source={StaticResource GlobalCommands}}"
+                Command="{Binding Exit, Source={StaticResource GlobalCommands}}"
                 Content="Quit"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" Margin="30"/>
