@@ -30,10 +30,5 @@ namespace FluentGit.Pages.CreateNewRepository
         {
             this.InitializeComponent();
         }
-
-        private void QuitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Exit();
-        }
     }
 }

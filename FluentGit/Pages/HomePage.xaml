@@ -12,9 +12,6 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.Resources>
-    </Page.Resources>
-
     <Grid>
         <StackPanel HorizontalAlignment="Stretch"
                     MaxWidth="400"
@@ -36,7 +33,7 @@
         </StackPanel>
 
         <Button x:Name="QuitButton"
-                Command="{Binding ExitCommand}"
+                Command="{Binding ExitCommand, Source={StaticResource GlobalCommands}}"
                 Content="Quit"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" Margin="30"/>

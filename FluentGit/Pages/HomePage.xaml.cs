@@ -30,18 +30,9 @@ namespace FluentGit.Pages
     /// </summary>
     public sealed partial class HomePage : Page
     {
-        public ICommand ExitCommand { get; set; }
-
         public HomePage()
         {
-            ExitCommand = new ExitCommand();
             this.InitializeComponent();
-            DataContext = this;
-        }
-
-        private void QuitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Exit();
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
