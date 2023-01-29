@@ -43,7 +43,7 @@
                         Margin="5,0,0,0" />
             </Grid>
 
-            <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Stretch" IsEnabled="{Binding IsValidDirectory}"/>
+            <Button x:Name="CreateButton" Click="CreateButton_Click" Content="Create" HorizontalAlignment="Stretch" IsEnabled="{Binding IsValidDirectory}"/>
         </StackPanel>
 
         <Button x:Name="QuitButton"

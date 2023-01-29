@@ -1,6 +1,8 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
+using FluentGit.Components;
+using FluentGit.Components.Commands;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -10,6 +12,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -46,22 +49,13 @@ namespace FluentGit.Pages.CreateNewRepository
         /// <summary>
         /// Pick an existing folder an write it path to BrowsingDirectory.
         /// </summary>
-        private async void pickFolder()
+        private async void PickFolder()
         {
-            FolderPicker directoryBrowser = new();
+            string path = await DialogDisplayer.ShowFolderPicker();
 
-            // Get the current window's HWND by passing in the Window object
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(ApplicationReferences.MainWindowReference);
-
-            // Associate the HWND with the file picker
-            WinRT.Interop.InitializeWithWindow.Initialize(directoryBrowser, hwnd);
-
-            directoryBrowser.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
-            directoryBrowser.FileTypeFilter.Add("*");
-
-            StorageFolder folder = await directoryBrowser.PickSingleFolderAsync();
-            if (folder != null)
-                GetDataContext().BrowsingDirectory = folder.Path;
+            // If there is a choosed folder.
+            if (path != null)
+                GetDataContext().BrowsingDirectory = path;
         }
 
         /// <summary>
@@ -71,7 +65,12 @@ namespace FluentGit.Pages.CreateNewRepository
         /// <param name="e"></param>
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            pickFolder();
+            PickFolder();
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            GitCommands.Init(GetDataContext().BrowsingDirectory);
         }
     }
 
