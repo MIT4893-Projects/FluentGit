@@ -26,6 +26,7 @@ namespace FluentGit.Components.Commands
             }
             catch (System.ComponentModel.Win32Exception)
             {
+                DialogDisplayer.ShowMessage("Git is not installed or added to PATH.");
                 return null;
             }
             return process.ExitCode;
