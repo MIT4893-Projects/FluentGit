@@ -35,11 +35,22 @@ namespace FluentGit
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Navigate to another page.
+        /// </summary>
+        /// <param name="page">Page to navigate's type</param>
         public void NavigatePage(Type page)
         {
             MainFrame.Navigate(page);
         }
 
+        /// <summary>
+        /// Event handler for MainFrame, invoke when loaded. Also is the event handler for the MainWindow,
+        /// invoke when loaded. Configure the global application's data context ApplicationDataContext to
+        /// store a reference of this MainWindow.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainFrame_Loaded(object sender, RoutedEventArgs e)
         {
             NavigatePage(typeof(HomePage));
@@ -47,9 +58,11 @@ namespace FluentGit
         }
     }
 
+    /// <summary>
+    /// Global Application's Data context.
+    /// </summary>
     static class ApplicationDataContext
     {
         public static MainWindow MainWindowReference;
-        public static ICommand ExitCommandReference = new ExitCommand();
     }
 }
