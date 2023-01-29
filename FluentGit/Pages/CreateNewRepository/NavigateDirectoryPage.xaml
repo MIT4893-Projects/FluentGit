@@ -8,11 +8,12 @@
     xmlns:local="using:FluentGit.Pages.CreateNewRepository"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignInstance Type=local:NavigateDirectoryPageDataContext}"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500">
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500" Margin="30">
             <TextBlock Margin="0,40"
                        Text="Create New Repository"
                        TextAlignment="Center"
@@ -30,11 +31,19 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="Directory: " Grid.ColumnSpan="2"/>
-                <TextBox Grid.Row="1"/>
-                <Button x:Name="BrowseButton" Content="Browse" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" />
+                
+                <TextBox x:Name="BrowsingDirectoryTextBox"
+                         Grid.Row="1"
+                         Text="{Binding BrowsingDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Button x:Name="BrowseButton"
+                        Click="BrowseButton_Click"
+                        Content="Browse"
+                        Grid.Row="1" Grid.Column="1"
+                        Margin="5,0,0,0" />
             </Grid>
 
-            <Button Content="Create" HorizontalAlignment="Stretch" />
+            <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Stretch" IsEnabled="{Binding IsValidDirectory}"/>
         </StackPanel>
 
         <Button x:Name="QuitButton"
