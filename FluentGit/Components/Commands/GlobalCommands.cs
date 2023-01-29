@@ -9,4 +9,8 @@ using System.Windows.Input;
 
 namespace FluentGit.Components.Commands
 {
+    public class GlobalCommands
+    {
+        public static ICommand ExitCommand { get; } = new ExitCommand();
+    }
 }
