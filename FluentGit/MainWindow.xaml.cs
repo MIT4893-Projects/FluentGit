@@ -54,14 +54,14 @@ namespace FluentGit
         private void MainFrame_Loaded(object sender, RoutedEventArgs e)
         {
             NavigatePage(typeof(HomePage));
-            ApplicationDataContext.MainWindowReference = this;
+            ApplicationReferences.MainWindowReference = this;
         }
     }
 
     /// <summary>
     /// Global Application's Data context.
     /// </summary>
-    static class ApplicationDataContext
+    static class ApplicationReferences
     {
         public static MainWindow MainWindowReference;
     }

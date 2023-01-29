@@ -37,7 +37,7 @@ namespace FluentGit.Pages
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContext.MainWindowReference.NavigatePage(typeof(NavigateDirectoryPage));
+            ApplicationReferences.MainWindowReference.NavigatePage(typeof(NavigateDirectoryPage));
         }
 
         private void Clone_Click(object sender, RoutedEventArgs e)
