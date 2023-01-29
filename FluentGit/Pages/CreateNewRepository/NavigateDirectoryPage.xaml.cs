@@ -34,11 +34,18 @@ namespace FluentGit.Pages.CreateNewRepository
             this.DataContext = new NavigateDirectoryPageDataContext();
         }
 
+        /// <summary>
+        /// Get this Page's data context.
+        /// </summary>
+        /// <returns>A data context has type NavigateDirectoryPageDataContext</returns>
         private NavigateDirectoryPageDataContext GetDataContext()
         {
             return DataContext as NavigateDirectoryPageDataContext;
         }
 
+        /// <summary>
+        /// Pick an existing folder an write it path to BrowsingDirectory.
+        /// </summary>
         private async void pickFolder()
         {
             FolderPicker directoryBrowser = new();
@@ -57,12 +64,20 @@ namespace FluentGit.Pages.CreateNewRepository
                 GetDataContext().BrowsingDirectory = folder.Path;
         }
 
+        /// <summary>
+        /// Event handler for BrowseButton, invoke when Click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
             pickFolder();
         }
     }
 
+    /// <summary>
+    /// Data context for NavigateDirectoryPage.
+    /// </summary>
     internal class NavigateDirectoryPageDataContext : PageDataContext
     {
         private string BrowsingDirectoryProperty;
@@ -72,8 +87,8 @@ namespace FluentGit.Pages.CreateNewRepository
             set
             {
                 BrowsingDirectoryProperty = value;
-                OnPropertyChange("BrowsingDirectory");
-                OnPropertyChange("IsValidDirectory");
+                OnPropertyChange(nameof(BrowsingDirectory));
+                OnPropertyChange(nameof(IsValidDirectory));
             }
         }
 
