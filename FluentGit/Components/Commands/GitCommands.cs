@@ -29,6 +29,13 @@ namespace FluentGit.Components.Commands
                 DialogDisplayer.ShowMessage("Git is not installed or added to PATH.", "Error");
                 return null;
             }
+
+            if (process.ExitCode != 0)
+            {
+                DialogDisplayer.ShowMessage(
+                    $"Git returned an exit code: {process.ExitCode}", "Error");
+            }
+
             return process.ExitCode;
         }
 
