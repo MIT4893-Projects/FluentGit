@@ -70,7 +70,11 @@ namespace FluentGit.Pages.CreateNewRepository
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            GitCommands.Init(GetDataContext().BrowsingDirectory);
+            if (GitCommands.Init(GetDataContext().BrowsingDirectory) == 0)
+            {
+                Type page = typeof(RepositoryManagementPage);
+                ApplicationReferences.MainWindowReference.NavigatePage(page); 
+            }
         }
     }
 
