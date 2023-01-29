@@ -31,6 +31,9 @@ namespace FluentGit
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        int MinWidth = 500;
+        int MinHeight = 500;
+
         public MainWindow()
         {
             this.InitializeComponent();
@@ -57,6 +60,8 @@ namespace FluentGit
             NavigatePage(typeof(HomePage));
         }
 
+        #region Set minimum size
+
         private delegate IntPtr WinProc(IntPtr hWnd, PInvoke.User32.WindowMessage Msg, IntPtr wParam, IntPtr lParam);
         private WinProc newWndProc = null;
         private IntPtr oldWndProc = IntPtr.Zero;
@@ -72,9 +77,6 @@ namespace FluentGit
             IntPtr hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             oldWndProc = SetWindowLong(hwnd, PInvoke.User32.WindowLongIndexFlags.GWL_WNDPROC, newWndProc);
         }
-
-        int MinWidth = 500;
-        int MinHeight = 500;
 
         [StructLayout(LayoutKind.Sequential)]
         struct MINMAXINFO
@@ -111,6 +113,8 @@ namespace FluentGit
         {
             IntPtr WindowHandle { get; }
         }
+
+        #endregion
     }
 
     /// <summary>
