@@ -113,7 +113,7 @@ namespace FluentGit.Pages
                         return InvalidDirectoryMessage;
                     return InvalidRepositoryMessage;
                 }
-                return String.Empty;
+                return string.Empty;
             }
         }
     }

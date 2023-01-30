@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
+using FluentGit.Components;
 using FluentGit.Components.Commands;
 using FluentGit.Pages.CreateNewRepository;
 using Microsoft.UI.Xaml;
@@ -37,7 +38,8 @@ namespace FluentGit.Pages
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationReferences.MainWindowReference.NavigatePage(typeof(NavigateDirectoryPage));
+            Type navigateDirectoryPage = typeof(NavigateDirectoryPage);
+            PageNavigator.Navigate(navigateDirectoryPage);
         }
 
         private void Clone_Click(object sender, RoutedEventArgs e)
@@ -47,7 +49,8 @@ namespace FluentGit.Pages
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationReferences.MainWindowReference.NavigatePage(typeof(OpenRepositoryPage));
+            Type openRepositoryPage = typeof(OpenRepositoryPage);
+            PageNavigator.Navigate(openRepositoryPage);
         }
     }
 }

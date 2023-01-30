@@ -73,7 +73,7 @@ namespace FluentGit.Pages.CreateNewRepository
             GitCommands.Init(GetDataContext().BrowsingDirectory);
 
             Type page = typeof(RepositoryManagementPage);
-            ApplicationReferences.MainWindowReference.NavigatePage(page);
+            PageNavigator.Navigate(page);
         }
     }
 
