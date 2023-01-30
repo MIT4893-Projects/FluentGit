@@ -47,7 +47,7 @@ namespace FluentGit.Pages
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-
+            ApplicationReferences.MainWindowReference.NavigatePage(typeof(OpenRepositoryPage));
         }
     }
 }
