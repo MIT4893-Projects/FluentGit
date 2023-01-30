@@ -10,7 +10,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <ResourceDictionary Source="ms-appx:///GlobalCommands.xaml" />
+                <ResourceDictionary Source="ms-appx:///GlobalResources/GlobalCommands.xaml" />
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->
