@@ -42,7 +42,9 @@
                         Margin="5,0,0,0" />
             </Grid>
 
-            <Button x:Name="OpenButton" Click="OpenButton_Click" Content="Open" HorizontalAlignment="Stretch" IsEnabled="{Binding IsValidDirectory}"/>
+            <Button x:Name="OpenButton" Click="OpenButton_Click" Content="Open" HorizontalAlignment="Stretch" IsEnabled="{Binding IsValidRepository}"/>
+
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="{StaticResource SystemErrorTextColor}" TextWrapping="Wrap"/>
         </StackPanel>
 
         <Button x:Name="QuitButton"
@@ -50,5 +52,6 @@
                 Content="Quit"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" Margin="30"/>
+
     </Grid>
 </Page>

@@ -68,7 +68,7 @@ namespace FluentGit.Pages
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            GitCommands.Status(GetDataContext().BrowsingDirectory);
         }
     }
 
@@ -85,13 +85,36 @@ namespace FluentGit.Pages
             {
                 BrowsingDirectoryProperty = value;
                 OnPropertyChange(nameof(BrowsingDirectory));
-                OnPropertyChange(nameof(IsValidDirectory));
+                OnPropertyChange(nameof(IsValidRepository));
+                OnPropertyChange(nameof(ErrorMessage));
             }
         }
 
-        public bool IsValidDirectory
+        private bool IsValidDirectory
         {
             get => Directory.Exists(BrowsingDirectory);
+        }
+
+        public bool IsValidRepository
+        {
+            get => Directory.Exists(BrowsingDirectory) && GitCommands.ValidRepoAt(BrowsingDirectory);
+        }
+
+        readonly string InvalidDirectoryMessage = "Invalid directory path, please check the path exists.";
+        readonly string InvalidRepositoryMessage =
+            "Invalid repository path, please check there is a repository at this repository. If not, please Create New Repository at this directory to continue.";
+        public string ErrorMessage
+        {
+            get
+            {
+                if (!IsValidRepository)
+                {
+                    if (!IsValidDirectory)
+                        return InvalidDirectoryMessage;
+                    return InvalidRepositoryMessage;
+                }
+                return String.Empty;
+            }
         }
     }
 }

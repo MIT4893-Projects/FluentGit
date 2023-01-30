@@ -70,11 +70,10 @@ namespace FluentGit.Pages.CreateNewRepository
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (GitCommands.Init(GetDataContext().BrowsingDirectory) == 0)
-            {
-                Type page = typeof(RepositoryManagementPage);
-                ApplicationReferences.MainWindowReference.NavigatePage(page); 
-            }
+            GitCommands.Init(GetDataContext().BrowsingDirectory);
+
+            Type page = typeof(RepositoryManagementPage);
+            ApplicationReferences.MainWindowReference.NavigatePage(page);
         }
     }
 
@@ -98,6 +97,17 @@ namespace FluentGit.Pages.CreateNewRepository
         public bool IsValidDirectory
         {
             get => Directory.Exists(BrowsingDirectory);
+        }
+
+        readonly string InvalidDirectoryMessage = "Invalid directory path, please check the path exists.";
+        public string ErrorMessage
+        {
+            get
+            {
+                if (!IsValidDirectory)
+                    return InvalidDirectoryMessage;
+                return "";
+            }
         }
     }
 }
