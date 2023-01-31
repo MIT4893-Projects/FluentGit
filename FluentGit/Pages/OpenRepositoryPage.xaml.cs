@@ -70,6 +70,11 @@ namespace FluentGit.Pages
         {
             GitCommands.Status(GetDataContext().BrowsingDirectory);
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigator.NavigateLastPage();
+        }
     }
 
     /// <summary>

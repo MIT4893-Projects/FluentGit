@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
+using FluentGit.Components;
 using FluentGit.Components.Commands;
 using FluentGit.Pages;
 using Microsoft.UI.Xaml;
@@ -42,22 +43,14 @@ namespace FluentGit
         }
 
         /// <summary>
-        /// Navigate to another page.
-        /// </summary>
-        /// <param name="page">Page to navigate's type</param>
-        public void NavigatePage(Type page)
-        {
-            MainFrame.Navigate(page);
-        }
-
-        /// <summary>
         /// Event handler for MainFrame, invoke when loaded.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MainFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigatePage(typeof(HomePage));
+            ApplicationReferences.MainFrameReference = MainFrame;
+            PageNavigator.Navigate(typeof(HomePage));
         }
 
         #region Set minimum size
@@ -123,5 +116,6 @@ namespace FluentGit
     static class ApplicationReferences
     {
         public static MainWindow MainWindowReference;
+        public static Frame MainFrameReference;
     }
 }

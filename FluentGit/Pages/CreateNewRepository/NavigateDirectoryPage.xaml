@@ -47,6 +47,12 @@
             <TextBlock Text="{Binding ErrorMessage}" Foreground="{StaticResource SystemErrorTextColor}" TextWrapping="Wrap"/>
         </StackPanel>
 
+        <Button x:Name="BackButton"
+                Click="BackButton_Click"
+                Style="{StaticResource NavigationBackButtonNormalStyle}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"/>
+
         <Button x:Name="QuitButton"
                 Command="{Binding Exit, Source={StaticResource GlobalCommands}}"
                 Content="Quit"

@@ -1,4 +1,5 @@
 ﻿using FluentGit.Pages.CreateNewRepository;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,16 @@ namespace FluentGit.Components
 {
     static class PageNavigator
     {
-        private static Stack<Type> VisitedPage = new();
-
         public static void Navigate(Type page)
         {
-            ApplicationReferences.MainWindowReference.NavigatePage(page);
-            VisitedPage.Push(page);
+            ApplicationReferences.MainFrameReference.Navigate(page);
         }
 
         public static void NavigateLastPage()
         {
-            Navigate(VisitedPage.Pop());
+            Frame mainFrame = ApplicationReferences.MainFrameReference;
+            if (mainFrame.CanGoBack)
+                mainFrame.GoBack();
         }
     }
 }

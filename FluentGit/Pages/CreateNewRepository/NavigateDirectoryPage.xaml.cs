@@ -75,6 +75,11 @@ namespace FluentGit.Pages.CreateNewRepository
             Type page = typeof(RepositoryManagementPage);
             PageNavigator.Navigate(page);
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigator.NavigateLastPage();
+        }
     }
 
     /// <summary>
