@@ -85,7 +85,7 @@ namespace FluentGit.Pages
     /// <summary>
     /// Data context for NavigateDirectoryPage.
     /// </summary>
-    internal class NavigateDirectoryPageDataContext : PageDataContext
+    internal sealed partial class NavigateDirectoryPageDataContext : PageDataContext
     {
         private string BrowsingDirectoryProperty;
         public string BrowsingDirectory
