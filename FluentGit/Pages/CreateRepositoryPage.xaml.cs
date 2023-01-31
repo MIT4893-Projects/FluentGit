@@ -96,6 +96,7 @@ namespace FluentGit.Pages
                 BrowsingDirectoryProperty = value;
                 OnPropertyChange(nameof(BrowsingDirectory));
                 OnPropertyChange(nameof(IsValidDirectory));
+                OnPropertyChange(nameof(ErrorMessage));
             }
         }
 
