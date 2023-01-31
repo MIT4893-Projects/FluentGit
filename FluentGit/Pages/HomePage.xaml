@@ -18,17 +18,14 @@
                     VerticalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
-                    <Setter Property="Margin" Value="5" />
-                    <Setter Property="Padding" Value="10,5" />
                     <Setter Property="HorizontalAlignment" Value="Stretch" />
-                    <Setter Property="BorderThickness" Value="0" />
                 </Style>
             </StackPanel.Resources>
 
             <TextBlock Text="FluentGit" Style="{StaticResource HeaderTextBlockStyle}" TextAlignment="Center" Margin="0, 30"/>
 
             <Button x:Name="CreateButton" Content="Create New Repository" Click="CreateButton_Click" />
-            <Button x:Name="Clone" Content="Clone Existing Repository" Click="Clone_Click" />
+            <Button x:Name="Clone" Content="Clone Existing Repository" Click="Clone_Click" Margin="0,5" />
             <Button x:Name="Open" Content="Open Existing Repository" Click="Open_Click" />
         </StackPanel>
 
