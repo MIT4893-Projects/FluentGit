@@ -13,6 +13,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <None Remove="GlobalCommands.xaml" />
+	  <None Remove="Pages\CloneRepositoryPage.xaml" />
 	  <None Remove="Pages\CreateNewRepository\NavigateDirectoryPage.xaml" />
 	  <None Remove="Pages\HomePage.xaml" />
 	  <None Remove="Pages\OpenRepositoryPage.xaml" />
@@ -44,6 +45,11 @@
   -->
 	<ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
 		<ProjectCapability Include="Msix" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Pages\CloneRepositoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Pages\OpenRepositoryPage.xaml">

@@ -44,7 +44,8 @@ namespace FluentGit.Pages
 
         private void Clone_Click(object sender, RoutedEventArgs e)
         {
-
+            Type cloneRepositoryPage = typeof(CloneRepositoryPage);
+            PageNavigator.Navigate(cloneRepositoryPage);
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
