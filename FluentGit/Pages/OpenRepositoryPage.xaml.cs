@@ -3,7 +3,7 @@
 
 using FluentGit.Components.Commands;
 using FluentGit.Components;
-using FluentGit.Pages.CreateNewRepository;
+using FluentGit.Pages;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;

@@ -1,4 +1,4 @@
-﻿using FluentGit.Pages.CreateNewRepository;
+﻿using FluentGit.Pages;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
