@@ -1,7 +1,6 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
-using FluentGit.Components.Commands;
 using FluentGit.Components;
 using FluentGit.Pages;
 using Microsoft.UI.Xaml;

@@ -16,7 +16,6 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using FluentGit.Components.Commands;
 using System.Text.RegularExpressions;
 
 // To learn more about WinUI, the WinUI project structure,

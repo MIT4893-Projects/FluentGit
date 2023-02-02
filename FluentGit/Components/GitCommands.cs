@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace FluentGit.Components.Commands
+namespace FluentGit.Components
 {
     public static class GitCommands
     {

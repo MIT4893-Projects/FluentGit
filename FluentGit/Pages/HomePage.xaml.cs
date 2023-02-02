@@ -2,7 +2,6 @@
 // Licensed under the MIT License.
 
 using FluentGit.Components;
-using FluentGit.Components.Commands;
 using FluentGit.Pages;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;

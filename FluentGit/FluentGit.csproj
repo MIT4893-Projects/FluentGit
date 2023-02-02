@@ -77,6 +77,7 @@
 	  </Page>
 	</ItemGroup>
 	<ItemGroup>
+	  <Folder Include="Components\Commands\" />
 	  <Folder Include="GlobalResources\" />
 	</ItemGroup>
 
