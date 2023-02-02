@@ -60,11 +60,5 @@
                 Style="{StaticResource NavigationBackButtonNormalStyle}"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"/>
-        
-        <Button Content="Quit"
-                Command="{Binding Exit, Source={StaticResource GlobalCommands}}"
-                IsEnabled="{Binding Clonable}"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom" Margin="30"/>
     </Grid>
 </Page>

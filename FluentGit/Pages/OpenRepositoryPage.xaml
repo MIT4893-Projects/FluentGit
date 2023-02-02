@@ -53,11 +53,5 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"/>
 
-        <Button x:Name="QuitButton"
-                Command="{Binding Exit, Source={StaticResource GlobalCommands}}"
-                Content="Quit"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom" Margin="30"/>
-
     </Grid>
 </Page>
