@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace FluentGit.Components.Commands
@@ -26,7 +27,7 @@ namespace FluentGit.Components.Commands
                 return false;
             }
             return true;
-            }
+        }
 
         /// <summary>
         /// Initialize a new repository at a directory.
@@ -41,6 +42,20 @@ namespace FluentGit.Components.Commands
         {
             Repository repo = new(directory);
             repo.RetrieveStatus(new StatusOptions());
+        }
+
+        public static int Clone(string sourceLocation, string targetDirectory)
+        {
+            try
+            {
+                Repository.Clone(sourceLocation, targetDirectory);
+            }
+            catch (LibGit2SharpException exception)
+            {
+                DialogDisplayer.ShowMessage(exception.Message, "Error");
+                return 1;
+            }
+            return 0;
         }
     }
 }

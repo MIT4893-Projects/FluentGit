@@ -14,7 +14,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500" Margin="30">
             <TextBlock Margin="0,40"
-                       Text="Clone Existing Repository"
+                       Text="Clone Existing Cloud Repository"
                        TextAlignment="Center"
                        Style="{StaticResource HeaderTextBlockStyle}"/>
 
@@ -31,41 +31,39 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="Source location: " Grid.ColumnSpan="2"/>
-                
+
                 <TextBox x:Name="BrowsingSourceLocationTextBox"
                          Grid.Row="1"
-                         Text="{Binding BrowsingDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <Button x:Name="BrowseSourceLocationButton"
-                        Content="Browse"
-                        Grid.Row="1" Grid.Column="1"
-                        Margin="5,0,0,0" />
-                
+                         Grid.ColumnSpan="2"
+                         Text="{Binding BrowsingSourceLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Target directory: " Grid.Row="2" Grid.ColumnSpan="2" Margin="0,5,0,0"/>
                 
                 <TextBox x:Name="BrowsingTargetDirectoryTextBox"
                          Grid.Row="3"
-                         Text="{Binding BrowsingDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding BrowsingTargetDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Button x:Name="BrowseTargetDirectoryButton"
+                        Click="BrowseTargetDirectoryButton_Click"
                         Content="Browse"
                         Grid.Row="3" Grid.Column="1"
                         Margin="5,0,0,0" />
             </Grid>
 
-            <RadioButton Content="Standard (Fast, Semi-Redurant, Hardlinks)" IsChecked="True" />
-            <RadioButton Content="Full Copy (Slower, Redurant Backup)" />
-            <RadioButton Content="Shared (Fastest, Not Recommended, No Backup)" />
+            <Button x:Name="CloneButton" Content="Clone" HorizontalAlignment="Stretch" IsEnabled="{Binding Clonable}" Margin="0,5,0,0" Click="CloneButton_Click" />
 
-            <Button x:Name="CloneButton" Content="Clone" HorizontalAlignment="Stretch" IsEnabled="{Binding IsValidDirectory}" Margin="0,5,0,0" />
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="{StaticResource SystemErrorTextColor}" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <Button Style="{StaticResource NavigationBackButtonNormalStyle}"
+        <Button x:Name="BackButton"
+                Click="BackButton_Click"
+                Style="{StaticResource NavigationBackButtonNormalStyle}"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"/>
         
         <Button Content="Quit"
+                Command="{Binding Exit, Source={StaticResource GlobalCommands}}"
+                IsEnabled="{Binding Clonable}"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" Margin="30"/>
     </Grid>
