@@ -76,10 +76,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Components\Commands\" />
-	  <Folder Include="GlobalResources\" />
-	</ItemGroup>
 
 	<!-- 
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
