@@ -4,6 +4,7 @@
 using FluentGit.Components;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using System;
 using System.IO;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -55,7 +56,8 @@ namespace FluentGit.Pages
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
-            GitCommands.Status(GetDataContext().BrowsingDirectory);
+            Type repositoryManagementPage = typeof(RepositoryManagementPage);
+            PageNavigator.Navigate(repositoryManagementPage);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
